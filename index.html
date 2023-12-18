@@ -1108,13 +1108,14 @@
                                     </div>
                                 </div>
                             </section>
-                            <section data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-section elementor-inner-section elementor-element elementor-element-6aec070 elementor-section-content-middle animated-slow elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible" data-id="6aec070" data-element_type="section" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+                            <section data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-section elementor-inner-section elementor-element elementor-element-6aec070 elementor-section-content-middle animated-slow elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible nama-hero" data-id="6aec070" data-element_type="section" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
                                 <div class="elementor-container elementor-column-gap-no">
                                     <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-6a03d69" data-id="6a03d69" data-element_type="column">
                                         <div class="elementor-widget-wrap elementor-element-populated">
                                             <div class="elementor-element elementor-element-91fd9d2 elementor-widget elementor-widget-text-editor" data-id="91fd9d2" data-element_type="widget" data-settings="{&quot;_animation_mobile&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
                                                 <div class="elementor-widget-container">
                                                     <p>Kepada Yth :</p>
+                                                    <span></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -3366,6 +3367,14 @@ berikut ini</h2>
             };
         </script>
         <script src="https://webinvite.id/wp-content/plugins/wpforms/assets/js/integrations/elementor/frontend.min.js?ver=1.7.1" id="wpforms-elementor-js"></script>
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const nama = urlParams.get('nama');
+            console.log(nama);
+
+            const namaContainer = document.querySelector('.nama-hero span');
+            namaContainer.innerText = nama;
+        </script>
     </body>
 </html>
 <!--
