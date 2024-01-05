@@ -1007,10 +1007,95 @@
         <link rel="icon" href="https://webinvite.id/wp-content/uploads/2022/07/cropped-Logo-Fix-150x150.png" sizes="32x32"/>
         <link rel="icon" href="https://webinvite.id/wp-content/uploads/2022/07/cropped-Logo-Fix.png" sizes="192x192"/>
         <link rel="apple-touch-icon" href="https://webinvite.id/wp-content/uploads/2022/07/cropped-Logo-Fix.png"/>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <meta name="msapplication-TileImage" content="https://webinvite.id/wp-content/uploads/2022/07/cropped-Logo-Fix.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+        <style>
+            .hidden {
+                transition: opacity 1s ease-in-out;
+            }
+            
+            .formAnjay, #formAnjay {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                backdrop-filter: blur(10px);
+                z-index: 99999;
+            }
+
+            form {
+                background: linear-gradient(
+                    to top,
+                    rgb(210, 162, 128), white, rgba(0,0,0, 0), rgba(0,0,0, 0)
+                );
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                width: 300px;
+                text-align: center;
+                z-index: 9999;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+
+            input,
+            select {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 15px;
+                box-sizing: border-box;
+            }
+
+            select {
+                margin-bottom: 30px;
+            }
+
+            button {
+                background-color: transparent !important;
+                color: #fff !important;
+                padding: 10px 15px;
+                border: solid white 2px !important;
+                border-radius: 10px !important;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: white !important;
+                color: chocolate !important;
+                border-color: chocolate !important;
+            }
+
+            button:disabled {
+                background-color: #ccc;
+                cursor: not-allowed !important;
+            }
+        </style>
     </head>
     <body class="post-template post-template-elementor_canvas single single-post postid-726039 single-format-standard wp-custom-logo elementor-default elementor-template-canvas elementor-kit-5 elementor-page elementor-page-726039">
+        <div id="formAnjay" class="formAnjay" style="display: none;">
+            <form id="myForm" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="700">
+                <label for="nameInput">Nama :</label>
+                <input type="text" id="nameInput" name="name" required>
+            
+                <label for="relationshipSelect">Dengan :</label>
+                <select id="relationshipSelect" name="relationship" required>
+                  <option value="" disabled selected>Pilih</option>
+                  <option value="Istri">Istri</option>
+                  <option value="Suami">Suami</option>
+                  <option value="Keluarga">Keluarga</option>
+                </select>
+            
+                <button type="submit" disabled data-aos="zoom-in" data-aos-duration="500" data-aos-delay="2000">Submit</button>
+            </form>
+        </div>
         <div data-elementor-type="wp-post" data-elementor-id="726039" class="elementor elementor-726039" data-elementor-post-type="post">
             <section data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-section elementor-top-section elementor-element elementor-element-d3003c5 elementor-section-height-min-height elementor-section-items-stretch elementor-section-content-bottom elementor-section-boxed elementor-section-height-default" data-id="d3003c5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                 <div class="elementor-background-overlay"></div>
@@ -1108,14 +1193,14 @@
                                     </div>
                                 </div>
                             </section>
-                            <section data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-section elementor-inner-section elementor-element elementor-element-6aec070 elementor-section-content-middle animated-slow elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible nama-hero" data-id="6aec070" data-element_type="section" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+                            <section data-particle_enable="false" data-particle-mobile-disabled="false" id="nama-hero" class="elementor-section elementor-inner-section elementor-element elementor-element-6aec070 elementor-section-content-middle animated-slow elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible nama-hero" data-id="6aec070" data-element_type="section" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
                                 <div class="elementor-container elementor-column-gap-no">
                                     <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-6a03d69" data-id="6a03d69" data-element_type="column">
                                         <div class="elementor-widget-wrap elementor-element-populated">
                                             <div class="elementor-element elementor-element-91fd9d2 elementor-widget elementor-widget-text-editor" data-id="91fd9d2" data-element_type="widget" data-settings="{&quot;_animation_mobile&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
                                                 <div class="elementor-widget-container">
                                                     <p>Kepada Yth :</p>
-                                                    <span></span>
+                                                    <span id="namaSpan"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -3368,12 +3453,41 @@ berikut ini</h2>
         </script>
         <script src="https://webinvite.id/wp-content/plugins/wpforms/assets/js/integrations/elementor/frontend.min.js?ver=1.7.1" id="wpforms-elementor-js"></script>
         <script>
-            const urlParams = new URLSearchParams(window.location.search);
-            const nama = urlParams.get('nama');
-            console.log(nama);
+            if(!localStorage.getItem('tamu')){
+                document.getElementById("formAnjay").style.display = "flex";
+                
+            } else {
+                const elm = document.querySelector('#namaSpan');
+                console.log(localStorage.getItem('tamu'));
+                elm.innerHTML = localStorage.getItem('tamu');
+            }
+            
+            document.getElementById('myForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                
+                const nameInput = document.getElementById('nameInput').value;
+                const relationshipSelect = document.getElementById('relationshipSelect').value;
+                
+                // Update URL with new parameters
+                const newUrl = `${nameInput} & ${relationshipSelect}`;
+                
+                localStorage.setItem('tamu' , newUrl)
 
-            const namaContainer = document.querySelector('.nama-hero span');
-            namaContainer.innerText = nama;
+                const elm = document.querySelector('#namaSpan')
+                console.log(localStorage.getItem('tamu'));
+                elm.innerHTML = localStorage.getItem('tamu')
+
+                formAnjay.classList.add("hidden");
+
+                // Menghilangkan form nya
+                setTimeout(function() {
+                    formAnjay.style.display = "none";
+                }, 1000);
+
+            });
+        </script>
+        <script>
+            AOS.init();
         </script>
     </body>
 </html>
